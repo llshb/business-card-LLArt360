@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Visita 3D com WebXR</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@v1.12.0/dist/model-viewer.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .links {
+        margin-top: 10px;
+      }
+      .links a {
+        text-decoration: none;
+        margin: 5px;
+        padding: 10px 15px;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+      }
+      .qr-code {
+        margin-top: 20px;
+      }
+      img {
+        width: 150px;
+        height: 150px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="card">
+      <h1>Meu Cartão de Visita</h1>
+      <p>Veja meu modelo 3D interativo e entre em contato comigo!</p>
+      
+      <!-- model-viewer para visualização 3D e AR -->
+      <model-viewer src="meu_modelo.glb" alt="Meu modelo 3D" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate background-color="#ffffff" style="width: 100%; height: 300px;">
+      </model-viewer>
+
+      <!-- Links de contato -->
+      <div class="links">
+        <a href="mailto:meuemail@exemplo.com">Email</a>
+        <a href="https://linkedin.com/in/meuperfil" target="_blank">LinkedIn</a>
+        <a href="https://meusite.com" target="_blank">Website</a>
+      </div>
+
+      <!-- QR Code para abrir a página -->
+      <div class="qr-code">
+        <p>Escaneie o QR code para visualizar em AR:</p>
+        <img src="qrcode.png" alt="QR code para visualizar em AR">
+      </div>
+    </div>
+
+  </body>
+</html>
