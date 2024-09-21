@@ -12,11 +12,11 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
   <a-scene embedded arjs>
-    <!-- Define the marker (you can use a custom marker) -->
-    <a-marker preset="custom" type="pattern" url="my-marker.patt">
-      <!-- Load the 3D business card -->
+    <!-- Usando o marcador personalizado -->
+    <a-marker preset="custom" type="pattern" url="https://github.com/llshb/business-card-LLArt360/raw/3b7dbcad24383b410a822735e5dff773e644952e/pattern-Captura%20de%20Tela%202024-09-21%20a%CC%80s%2020.00.09.patt">
+      <!-- Carregar o modelo 3D -->
       <a-entity scale="0.5 0.5 0.5" position="0 0 0">
-        <model-viewer src="models/business-card.glb" alt="Business Card" camera-controls></model-viewer>
+        <model-viewer src="https://github.com/llshb/business-card-LLArt360/raw/3b7dbcad24383b410a822735e5dff773e644952e/3_AR%20Business%20Card%20-%20LL%20Art%20360_3D%20(Blender).glb" alt="Business Card" camera-controls></model-viewer>
       </a-entity>
     </a-marker>
     <a-entity camera></a-entity>
