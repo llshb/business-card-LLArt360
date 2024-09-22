@@ -10,100 +10,33 @@
   <body>
     <a-scene embedded arjs="patternRatio:0.90" vr-mode-ui="enabled: false">
       <a-assets>
-        <!-- Coloquei o a-assets aqui, dentro do a-scene -->
-        <a-asset-item
-          id="3d-model"
-          src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/Layout%20Business%20Card%20-%20LL%20Art%20360.glb"
-        ></a-asset-item>
-        <video
-          id="video"
-          src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/TIkal.mp4"
-          autoplay
-          loop="true"
-          webkit-playsinline
-          playsinline
-        ></video>
+        <!-- Carregar modelo 3D e vídeo -->
+        <a-asset-item id="3d-model" src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/Layout%20Business%20Card%20-%20LL%20Art%20360.glb"></a-asset-item>
+        <video id="video" src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/TIkal.mp4" autoplay loop="true" webkit-playsinline playsinline></video>
       </a-assets>
 
       <a-marker
         type="pattern"
-        url="https://raw.githubusercontent.com/llshb/business-card-LLArt360/refs/heads/main/marker_1.patt"
+        url="https://llshb.github.io/business-card-LLArt360/marker.patt"
         >
         <!-- Iluminação ajustada -->
         <a-light type="ambient" color="#ffffff" intensity="4"></a-light>
-        <a-light
-          type="directional"
-          color="#ffffff"
-          intensity="3"
-          position="0 4 4"
-        ></a-light>
+        <a-light type="directional" color="#ffffff" intensity="3" position="0 4 4"></a-light>
 
-        <!-- Adicione o modelo GLB na cena -->
-        <a-gltf-model
-          id="my-model"
-          src="#3d-model"
-          position="-0.0600 0 0"
-          rotation="0 0 0"
-          scale="1 1 1"
-        >
-        </a-gltf-model>
+        <!-- Adicionar modelo GLB -->
+        <a-gltf-model id="my-model" src="#3d-model" position="-0.0600 0 0" rotation="0 0 0" scale="1 1 1"></a-gltf-model>
 
-        <!-- Adicione o vídeo na posição do objeto "video" do Blender -->
-        <a-video
-          src="#video"
-          position="0 0.1 -3.9500"
-          rotation="-90 0 0"
-          scale="6.09 3.239 0"
-          draggable
-        ></a-video>
+        <!-- Adicionar vídeo -->
+        <a-video src="#video" position="0 0.1 -3.9500" rotation="-90 0 0" scale="6.09 3.239 0" draggable></a-video>
 
-        <!-- Adicionar máscaras interativas com cores para verificar posição -->
-        <a-plane
-          position="-2.5 0.36 1.630"
-          rotation="-90 0 0"
-          width="0.9"
-          height="0.9"
-          color="red"
-          event-set__click="window.open('https://www.instagram.com/llart360/', '_blank')"
-        ></a-plane>
+        <!-- Links interativos para redes sociais -->
+        <a-plane position="-2.5 0.36 1.630" rotation="-90 0 0" width="0.9" height="0.9" opacity="0.001" event-set__click="window.open('https://www.instagram.com/llart360/', '_blank')"></a-plane>
+        <a-plane position="-1.18 0.34 1.630" rotation="-90 0 0" width="1.17" height="0.9" opacity="0.001" event-set__click="window.open('https://www.youtube.com/@llart360', '_blank')"></a-plane>
+        <a-plane position="0.17 0.3 1.630" rotation="-90 0 0" width="0.9" height="0.9" opacity="0.001" event-set__click="window.open('https://www.facebook.com/profile.php?id=100088591951919', '_blank')"></a-plane>
+        <a-plane position="1.47 0.32 1.630" rotation="-90 0 0" width="0.9" height="0.9" opacity="0.001" event-set__click="window.open('https://www.linkedin.com/in/llshb', '_blank')"></a-plane>
+        <a-plane position="2.60 0.3 1.630" rotation="-90 0 0" width="0.9" height="0.9" opacity="0.001" event-set__click="window.open('https://www.llart360.com', '_blank')"></a-plane>
 
-        <a-plane
-          position="-1.18 0.34 1.630"
-          rotation="-90 0 0"
-          width="1.17"
-          height="0.9"
-          color="blue"
-          event-set__click="window.open('https://www.youtube.com/@llart360', '_blank')"
-        ></a-plane>
-
-        <a-plane
-          position="0.17 0.3 1.630"
-          rotation="-90 0 0"
-          width="0.9"
-          height="0.9"
-          color="green"
-          event-set__click="window.open('https://www.facebook.com/profile.php?id=100088591951919', '_blank')"
-        ></a-plane>
-
-        <a-plane
-          position="1.47 0.32 1.630"
-          rotation="-90 0 0"
-          width="0.9"
-          height="0.9"
-          color="yellow"
-          event-set__click="window.open('https://www.linkedin.com/in/llshb', '_blank')"
-        ></a-plane>
-
-        <a-plane
-          position="2.60 0.3 1.630"
-          rotation="-90 0 0"
-          width="0.9"
-          height="0.9"
-          color="purple"
-          event-set__click="window.open('https://www.llart360.com', '_blank')"
-        ></a-plane>
-
-        <!-- Adicione um plano de fundo -->
+        <!-- Adicionar plano de fundo -->
         <a-sky color="#ECECEC"></a-sky>
       </a-marker>
 
