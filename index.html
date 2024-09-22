@@ -1,32 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe-ar.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GLB Model in A-Frame with Social Links</title>
   </head>
   <body>
-    <a-scene embedded arjs="patternRatio:0.90" vr-mode-ui="enabled: false">
-      <a-assets>
-        <a-asset-item
-          id="3d-model"
-          src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/Layout%20Business%20Card%20-%20LL%20Art%20360.glb"
-        ></a-asset-item>
-        <video
-          id="video"
-          src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/TIkal.mp4"
-          autoplay
-          loop="true"
-          webkit-playsinline
-          playsinline
-        ></video>
-      </a-assets>
-
+    <a-scene embedded arjs="sourceType: webcam; patternRatio:0.90" vr-mode-ui="enabled: false">
+      <!-- Definir o marcador AR -->
       <a-marker
         type="pattern"
-        url="https://github.com/llshb/business-card-LLArt360/blob/a23cc1d82515ab0394556214d7887b3dd48381e3/marker.patt"
+        url="https://llshb.github.io/business-card-LLArt360/marker.patt"
       >
         <!-- Iluminação ajustada -->
         <a-light type="ambient" color="#ffffff" intensity="4"></a-light>
@@ -36,6 +22,22 @@
           intensity="3"
           position="0 4 4"
         ></a-light>
+
+        <!-- Carregue os ativos, incluindo o modelo 3D GLB -->
+        <a-assets>
+          <a-asset-item
+            id="3d-model"
+            src="https://llshb.github.io/business-card-LLArt360/Layout%20Business%20Card%20-%20LL%20Art%20360.glb"
+          ></a-asset-item>
+          <video
+            id="video"
+            src="https://llshb.github.io/business-card-LLArt360/TIkal.mp4"
+            autoplay
+            loop="true"
+            webkit-playsinline
+            playsinline
+          ></video>
+        </a-assets>
 
         <!-- Adicione o modelo GLB na cena -->
         <a-gltf-model
@@ -55,62 +57,53 @@
         ></a-video>
 
         <!-- Adicionar máscaras interativas com cores para verificar posição -->
-        <!-- Instagram -->
         <a-plane
           position="-2.5 0.36 1.630"
           rotation="-90 0 0"
           width="0.9"
           height="0.9"
-          opacity="0.5"
-          color="red"
+          color="#E4405F"
           event-set__click="window.open('https://www.instagram.com/llart360/', '_blank')"
         ></a-plane>
 
-        <!-- YouTube -->
         <a-plane
           position="-1.18 0.34 1.630"
           rotation="-90 0 0"
           width="1.17"
           height="0.9"
-          opacity="0.5"
-          color="green"
+          color="#FF0000"
           event-set__click="window.open('https://www.youtube.com/@llart360', '_blank')"
         ></a-plane>
 
-        <!-- Facebook -->
         <a-plane
           position="0.17 0.3 1.630"
           rotation="-90 0 0"
           width="0.9"
           height="0.9"
-          opacity="0.5"
-          color="blue"
+          color="#3b5998"
           event-set__click="window.open('https://www.facebook.com/profile.php?id=100088591951919', '_blank')"
         ></a-plane>
 
-        <!-- LinkedIn -->
         <a-plane
           position="1.47 0.32 1.630"
           rotation="-90 0 0"
           width="0.9"
           height="0.9"
-          opacity="0.5"
-          color="yellow"
+          color="#0077B5"
           event-set__click="window.open('https://www.linkedin.com/in/llshb', '_blank')"
         ></a-plane>
 
-        <!-- LL Art 360 -->
         <a-plane
           position="2.60 0.3 1.630"
           rotation="-90 0 0"
           width="0.9"
           height="0.9"
-          opacity="0.5"
-          color="purple"
+          color="#ffffff"
           event-set__click="window.open('https://www.llart360.com', '_blank')"
         ></a-plane>
-
       </a-marker>
+
+      <!-- Câmera e cursor -->
       <a-entity camera></a-entity>
     </a-scene>
   </body>
