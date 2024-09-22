@@ -9,9 +9,25 @@
   </head>
   <body>
     <a-scene embedded arjs="patternRatio:0.90" vr-mode-ui="enabled: false">
+      <a-assets>
+        <!-- Coloquei o a-assets aqui, dentro do a-scene -->
+        <a-asset-item
+          id="3d-model"
+          src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/Layout%20Business%20Card%20-%20LL%20Art%20360.glb"
+        ></a-asset-item>
+        <video
+          id="video"
+          src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/TIkal.mp4"
+          autoplay
+          loop="true"
+          webkit-playsinline
+          playsinline
+        ></video>
+      </a-assets>
+
       <a-marker
         type="pattern"
-        url="./marker.patt" <!-- Certifique-se de que o arquivo marker.patt está no mesmo diretório -->
+        url="https://github.com/llshb/business-card-LLArt360/blob/a23cc1d82515ab0394556214d7887b3dd48381e3/marker.patt"
       >
         <!-- Iluminação ajustada -->
         <a-light type="ambient" color="#ffffff" intensity="4"></a-light>
@@ -21,22 +37,6 @@
           intensity="3"
           position="0 4 4"
         ></a-light>
-
-        <!-- Carregue os ativos, incluindo o modelo 3D GLB -->
-        <a-assets>
-          <a-asset-item
-            id="3d-model"
-            src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/Layout%20Business%20Card%20-%20LL%20Art%20360.glb"
-          ></a-asset-item>
-          <video
-            id="video"
-            src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/main/TIkal.mp4"
-            autoplay
-            loop="true"
-            webkit-playsinline
-            playsinline
-          ></video>
-        </a-assets>
 
         <!-- Adicione o modelo GLB na cena -->
         <a-gltf-model
@@ -55,11 +55,9 @@
           rotation="-90 0 0"
           scale="6.09 3.239 0"
           draggable
-        >
-        </a-video>
+        ></a-video>
 
         <!-- Adicionar máscaras interativas com cores para verificar posição -->
-        <!-- Instagram -->
         <a-plane
           position="-2.5 0.36 1.630"
           rotation="-90 0 0"
@@ -69,7 +67,6 @@
           event-set__click="window.open('https://www.instagram.com/llart360/', '_blank')"
         ></a-plane>
 
-        <!-- YouTube -->
         <a-plane
           position="-1.18 0.34 1.630"
           rotation="-90 0 0"
@@ -79,7 +76,6 @@
           event-set__click="window.open('https://www.youtube.com/@llart360', '_blank')"
         ></a-plane>
 
-        <!-- Facebook -->
         <a-plane
           position="0.17 0.3 1.630"
           rotation="-90 0 0"
@@ -89,7 +85,6 @@
           event-set__click="window.open('https://www.facebook.com/profile.php?id=100088591951919', '_blank')"
         ></a-plane>
 
-        <!-- LinkedIn -->
         <a-plane
           position="1.47 0.32 1.630"
           rotation="-90 0 0"
@@ -99,7 +94,6 @@
           event-set__click="window.open('https://www.linkedin.com/in/llshb', '_blank')"
         ></a-plane>
 
-        <!-- LL Art 360 -->
         <a-plane
           position="2.60 0.3 1.630"
           rotation="-90 0 0"
@@ -112,6 +106,7 @@
         <!-- Adicione um plano de fundo -->
         <a-sky color="#ECECEC"></a-sky>
       </a-marker>
+
       <a-entity camera cursor="fuse: false; rayOrigin: mouse"></a-entity>
     </a-scene>
   </body>
