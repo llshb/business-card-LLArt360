@@ -16,23 +16,27 @@
             align-items: center;
             background: #f7f7f7;
         }
-        .container {
-            width: 44.28%; /* Aumentado em 5% em relação ao valor anterior (42.17%) */
+        .main-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 85%; /* Ajuste da largura total */
             height: 80%;
             border: 1px solid #ddd;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background: white;
-            position: relative;
         }
-        .signature-container {
-            width: 100%;
+        .container {
+            width: 44%; /* Cada contêiner agora ocupa 44% para ficar balanceado */
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
+            border-radius: 12px;
         }
-        iframe {
+        .signature-container iframe, .website-container iframe {
             width: 100%;
             height: 100%;
             border: none;
@@ -41,24 +45,29 @@
         /* Ajustes para posicionar a logo 3D */
         .logo-viewer {
             position: absolute;
-            top: 15%;  /* Ajuste para centralizar no topo da logo existente */
+            top: 10%;  /* Ajuste para centralizar no topo dos contêineres */
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 100px;  /* Ajuste de tamanho da logo */
-            height: 100px;
+            width: 80px;  /* Ajuste de tamanho da logo */
+            height: 80px;
             pointer-events: none; /* Desativa a interação com o logo */
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <!-- Assinatura HTML ocupando a nova largura -->
-    <div class="signature-container">
+<div class="main-container">
+    <!-- Esquerda: Contêiner da Assinatura -->
+    <div class="container signature-container">
         <iframe src="https://llshb.github.io/E-mail-Signature/"></iframe>
     </div>
 
-    <!-- Logo 3D centralizada em cima da logo existente na assinatura -->
+    <!-- Direita: Contêiner do Website -->
+    <div class="container website-container">
+        <iframe src="https://www.llart360.com"></iframe>
+    </div>
+
+    <!-- Logo 3D centralizada entre os contêineres -->
     <model-viewer src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(android).glb"
                   ios-src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(ios).usdz"
                   alt="LLArt 360 Logo"
