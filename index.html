@@ -31,12 +31,13 @@
         ar
         ar-modes="scene-viewer quick-look"
         camera-controls
-        auto-rotate
-        camera-orbit="0deg 90deg 1m"  <!-- Ajuste para uma visão superior -->
-        camera-target="0m 0m 0m"  <!-- Centraliza a câmera no objeto -->
-        field-of-view="45deg"  <!-- Ajuste o campo de visão para melhor perspectiva -->
-        min-camera-orbit="auto 90deg auto"  <!-- Limita a rotação da câmera para manter a vista superior -->
-        max-camera-orbit="auto 90deg auto"  <!-- Limita a rotação da câmera para evitar outras vistas -->
+        camera-orbit="0deg 90deg 2m"   <!-- Define a câmera diretamente de cima -->
+        camera-target="0m 0m 0m"        <!-- Centraliza a câmera no centro do objeto -->
+        field-of-view="30deg"           <!-- Campo de visão mais estreito para parecer uma visualização de cima -->
+        min-camera-orbit="auto 90deg auto"   <!-- Limita a rotação da câmera apenas para cima -->
+        max-camera-orbit="auto 90deg auto"   <!-- Limita a rotação da câmera para manter a visão superior -->
+        environment-image="neutral"     <!-- Adiciona um fundo neutro para melhorar a visualização -->
+        auto-rotate                     <!-- O modelo rotaciona automaticamente para visualização 360º -->
         alt="LL Art 360º Business Card">
     </model-viewer>
 </body>
