@@ -18,25 +18,19 @@
         }
         .container {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             width: 90%;
             height: 80%;
             border: 1px solid #ddd;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             background: white;
-            padding: 20px;
+            position: relative;
         }
-        .left, .right {
-            flex: 1;
-            margin: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .middle {
-            flex: 1.5;
-            margin: 10px;
+        .signature-container {
+            width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -47,42 +41,35 @@
             border: none;
             border-radius: 10px;
         }
-        .signature-iframe {
-            width: 100%;
-            height: 90%;
-        }
-        /* Ajuste de tamanho da logo 3D */
+        /* Ajustes para posicionar o logo */
         .logo-viewer {
-            width: 50%;  /* Diminuir largura para 50% */
-            height: 50%; /* Diminuir altura para 50% */
-            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;  /* Ajustar para posicionamento */
+            height: 150px; /* Ajustar para posicionamento */
+            pointer-events: none; /* Desativa a interação no logo */
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Esquerda: Assinatura HTML -->
-    <div class="left">
-        <iframe class="signature-iframe" src="https://llshb.github.io/E-mail-Signature/"></iframe>
+    <!-- Esquerda: Assinatura HTML ocupando toda a tela -->
+    <div class="signature-container">
+        <iframe src="https://llshb.github.io/E-mail-Signature/"></iframe>
     </div>
 
-    <!-- Centro: Logo 3D usando model-viewer -->
-    <div class="middle">
-        <model-viewer src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(android).glb"
-                      ios-src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(ios).usdz"
-                      alt="LLArt 360 Logo"
-                      auto-rotate
-                      camera-controls
-                      ar
-                      class="logo-viewer">
-        </model-viewer>
-    </div>
-
-    <!-- Direita: Pré-visualização do site -->
-    <div class="right">
-        <iframe src="https://www.llart360.com"></iframe>
-    </div>
+    <!-- Centro: Logo 3D centralizado acima da assinatura -->
+    <model-viewer src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(android).glb"
+                  ios-src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(ios).usdz"
+                  alt="LLArt 360 Logo"
+                  auto-rotate
+                  camera-controls
+                  ar
+                  class="logo-viewer">
+    </model-viewer>
 </div>
 
 </body>
