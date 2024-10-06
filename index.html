@@ -17,11 +17,8 @@
             background: #f7f7f7;
         }
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             width: 90%;
-            height: 80%;
+            height: 90%;
             border: 1px solid #ddd;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -41,27 +38,27 @@
             border: none;
             border-radius: 10px;
         }
-        /* Ajustes para posicionar o logo */
+        /* Ajustes para centralizar a logo 3D */
         .logo-viewer {
             position: absolute;
-            top: 50%;
+            top: 15%;  /* Ajuste para centralizar no topo da logo existente */
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 150px;  /* Ajustar para posicionamento */
-            height: 150px; /* Ajustar para posicionamento */
-            pointer-events: none; /* Desativa a interação no logo */
+            width: 100px;  /* Ajuste de tamanho da logo */
+            height: 100px;
+            pointer-events: none; /* Desativa a interação com o logo */
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Esquerda: Assinatura HTML ocupando toda a tela -->
+    <!-- Assinatura HTML ocupando toda a tela -->
     <div class="signature-container">
         <iframe src="https://llshb.github.io/E-mail-Signature/"></iframe>
     </div>
 
-    <!-- Centro: Logo 3D centralizado acima da assinatura -->
+    <!-- Logo 3D centralizada em cima da logo existente na assinatura -->
     <model-viewer src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(android).glb"
                   ios-src="https://raw.githubusercontent.com/llshb/LL-Art-360---Logo-3D/main/Logo_LLArt360_3D(ios).usdz"
                   alt="LLArt 360 Logo"
