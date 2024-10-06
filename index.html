@@ -18,7 +18,7 @@
         }
         .container {
             width: 90%;
-            height: 90%;
+            height: 70%; /* Reduzido para 70% para ajustar a assinatura */
             border: 1px solid #ddd;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -27,7 +27,7 @@
         }
         .signature-container {
             width: 100%;
-            height: 100%;
+            height: 50%; /* Reduzido em 50% na altura */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -41,7 +41,7 @@
         /* Ajustes para centralizar a logo 3D */
         .logo-viewer {
             position: absolute;
-            top: 15%;  /* Ajuste para centralizar no topo da logo existente */
+            top: 25%;  /* Ajuste para alinhar logo no topo da assinatura reduzida */
             left: 50%;
             transform: translate(-50%, -50%);
             width: 100px;  /* Ajuste de tamanho da logo */
@@ -53,7 +53,7 @@
 <body>
 
 <div class="container">
-    <!-- Assinatura HTML ocupando toda a tela -->
+    <!-- Assinatura HTML ocupando toda a tela, mas com altura reduzida -->
     <div class="signature-container">
         <iframe src="https://llshb.github.io/E-mail-Signature/"></iframe>
     </div>
