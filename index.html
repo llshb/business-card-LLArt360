@@ -31,13 +31,19 @@
         ar
         ar-modes="scene-viewer quick-look"
         camera-controls
-        ar-placement="floor"   <!-- Detecta e posiciona o objeto em uma superfície plana -->
-        disable-tap     <!-- Impede que o usuário mova o objeto de lugar -->
-        camera-orbit="0deg 90deg 1m"  <!-- Posiciona a câmera diretamente acima -->
-        rotation="-90deg 180deg 0deg" <!-- Corrigir a rotação inicial -->
-        environment-image="neutral"
+        ar-placement="floor"
+        disable-tap
+        camera-orbit="0deg 90deg 1m"
+        rotation="-90deg 180deg 0deg"
+        environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
+        exposure="1.8"           <!-- Ajuste da exposição para destacar cores -->
+        shadow-intensity="1"     <!-- Aumentar a intensidade da sombra para mais contraste -->
+        shadow-softness="0.5"    <!-- Suavizar as sombras para um visual mais realista -->
         alt="LL Art 360º Business Card"
-        exposure="1.2">
+        skybox-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.hdr"
+        auto-rotate
+        auto-rotate-delay="5"
+        style="background-color: #ffffff;"> <!-- Define um fundo branco para melhorar a visualização -->
     </model-viewer>
 </body>
 </html>
