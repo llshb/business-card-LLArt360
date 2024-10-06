@@ -21,18 +21,69 @@
             width: 100%;
             max-width: 800px;
             height: 500px;
+            background-color: #ffffff;
+        }
+
+        .footer {
+            width: 100%;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #FFC107;
         }
     </style>
 </head>
 <body>
-    <!-- Modelo 3D com Model Viewer -->
+    <!-- Modelo 3D com Model Viewer com Ajustes de Iluminação -->
     <model-viewer
         src="https://raw.githubusercontent.com/llshb/business-card-LLArt360/162398dd4aed007bc72bcac51182b4d8daeeaba8/Teste_1.glb"
         ar
         ar-modes="scene-viewer quick-look"
         camera-controls
         auto-rotate
+        exposure="1.2"
+        environment-image="https://modelviewer.dev/shared-assets/environments/footprint_court_2k.hdr"
+        shadow-intensity="1"
         alt="LL Art 360º Business Card">
     </model-viewer>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="social-icons">
+            <!-- Links para as redes sociais -->
+            <a href="https://www.facebook.com/profile.php?id=100088591951919" target="_blank">
+                <img src="https://raw.githubusercontent.com/llshb/E-mail-Signature/main/iconface%20-%20co%CC%81pia.png" alt="Facebook">
+            </a>
+            <a href="https://www.youtube.com/@llart360" target="_blank">
+                <img src="https://raw.githubusercontent.com/llshb/E-mail-Signature/main/iconyout%20-%20co%CC%81pia.png" alt="YouTube">
+            </a>
+            <a href="https://www.instagram.com/llart360/" target="_blank">
+                <img src="https://raw.githubusercontent.com/llshb/E-mail-Signature/main/iconinsta%20-%20co%CC%81pia.png" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/in/llshb" target="_blank">
+                <img src="https://raw.githubusercontent.com/llshb/E-mail-Signature/main/iconlinked%20-%20co%CC%81pia.png" alt="LinkedIn">
+            </a>
+        </div>
+        <p style="margin-top: 15px;">LL Art 360º © 2024</p>
+    </div>
 </body>
 </html>
