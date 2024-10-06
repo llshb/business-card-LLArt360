@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LL Art 360 - Assinatura AR</title>
+    <title>Assinatura AR</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <style>
         body, html {
@@ -11,36 +11,98 @@
             padding: 0;
             width: 100%;
             height: 100%;
+            background-color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #f7f7f7;
         }
-        .main-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+
+        model-viewer {
             width: 100%;
             height: 100%;
+        }
+
+        #enter-xr {
+            display: none;
             background: #fff;
-            position: relative;
+            padding: 20px;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
 </head>
 <body>
-
-<div class="main-container">
-    <!-- Contêiner para Visualização AR -->
-    <model-viewer src="assinatura.glb"
+    <!-- Model Viewer com visualização AR -->
+    <model-viewer id="xr-viewer"
+                  src="assinatura.glb"
                   ios-src="assinatura.usdz"
                   alt="Assinatura LL Art 360"
                   ar
-                  ar-modes="webxr scene-viewer quick-look"
+                  ar-modes="scene-viewer webxr quick-look"
                   camera-controls
                   auto-rotate
-                  style="width: 100%; height: 100%;">
+                  shadow-intensity="1"
+                  exposure="1"
+                  ar-placement="floor"
+                  interaction-prompt="tap-to-place"
+                  ar-scale="fixed"
+                  style="width: 100%; height: 100%; display: none;">
     </model-viewer>
-</div>
 
+    <!-- Botão Fallback para entrar no modo AR manualmente -->
+    <button id="enter-xr">AR Viewer</button>
+
+    <script>
+      const modelViewer = document.getElementById('xr-viewer');
+      const enterXRButton = document.getElementById('enter-xr');
+
+      // Detecta se a experiência AR falhou ou não
+      modelViewer.addEventListener('ar-status', (event) => {
+        if (event.detail.status === 'failed') {
+          console.log("WebXR não é suportado neste dispositivo.");
+        }
+      });
+
+      // Ajuste da posição inicial do modelo no centro da tela e ancoragem automática no chão
+      modelViewer.addEventListener('ar-tracking', (event) => {
+        if (event.detail.status === 'tracking') {
+          console.log("Modelo ancorado em uma superfície.");
+          modelViewer.setAttribute('style', 'width: 100%; height: 100%; display: block;');
+          modelViewer.cameraOrbit = "0deg 90deg 2m"; // Exibe o modelo à frente da câmera
+        }
+      });
+
+      // Função para ativar o AR quando o usuário clicar ou tocar
+      function activateXR() {
+        if (modelViewer.canActivateAR) {
+          modelViewer.activateAR();
+        } else {
+          enterXRButton.style.display = 'block';
+        }
+      }
+
+      // Entrar no modo XR ao clicar no botão
+      enterXRButton.addEventListener('click', () => {
+        modelViewer.activateAR();
+        enterXRButton.style.display = 'none';
+      });
+
+      // Ativar o XR ao primeiro clique na página
+      window.addEventListener('click', () => {
+        activateXR();
+      });
+
+      // Ocultar o botão caso o WebXR possa ser ativado diretamente
+      if (modelViewer.canActivateAR) {
+        enterXRButton.style.display = 'none';
+      } else {
+        enterXRButton.style.display = 'block';
+      }
+    </script>
 </body>
 </html>
